@@ -1,8 +1,8 @@
 {
-  "name": "@monorepo/sample-plugin",
-  "version": "0.0.0-fixed",
-  "description": "Sample dynamic plugin project",
-  "private": true,
+  "name": "hac-bs",
+  "version": "0.0.1",
+  "description": "hac-bs",
+  "private": false,
   "scripts": {
     "clean": "rm -rf dist",
     "build": "yarn clean && yarn webpack",
