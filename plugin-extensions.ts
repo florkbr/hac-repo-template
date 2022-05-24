@@ -1,10 +1,4 @@
-import type {
-  EncodedExtension,
-  ModelFeatureFlag,
-  TelemetryListener,
-} from '@openshift/dynamic-plugin-sdk';
-
-// TODO(vojtech): make EncodedExtension type work with A | B type unions
+import type { EncodedExtension, ModelFeatureFlag, TelemetryListener, HrefNavItem } from '@openshift/dynamic-plugin-sdk';
 
 const e1: EncodedExtension<ModelFeatureFlag> = {
   type: 'core.flag/model',
@@ -25,4 +19,24 @@ const e2: EncodedExtension<TelemetryListener> = {
   },
 };
 
-export default [e1, e2];
+const e3: HrefNavItem = {
+  type: 'core.navigation/href',
+  properties: {
+    id: 'hac-bs',
+    href: '/hac-bs',
+    name: 'Build Service Home',
+  },
+};
+
+// TODO CodeRef type not properly exposed from SDK
+const e4 = {
+  type: 'core.page/route',
+  properties: {
+    path: '/hac-bs',
+    component: {
+      $codeRef: 'init',
+    },
+  },
+};
+
+export default [e1, e2, e3, e4];
